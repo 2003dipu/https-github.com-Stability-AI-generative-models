@@ -1,5 +1,5 @@
 # After learning this while loop you will be the master of while loop and the deep understanding of while loop will enable you to do impossible possible
-
+# Have you been grappling to master the while loop? Look no further. I have you coverd here.
 def ordinal(n) :
     ordinal_endings = {
         1 : "est",
