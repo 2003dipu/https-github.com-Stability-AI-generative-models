@@ -1,4 +1,6 @@
-def ordinal(n):
+# After learning this while loop you will be the master of while loop and the deep understanding of while loop will enable you to do impossible possible
+
+def ordinal(n) :
     ordinal_endings = {
         1: "st",
         2: "nd",
@@ -13,5 +15,5 @@ def ordinal(n):
 n = 0
 while n < 100:
     ordinal_number = ordinal(n)
-    print(f"{ordinal_number} line of while loop prints {n}")
-    n += 1
+    print(f"{ordinal_number} line of while loop prints {n}", end = "\n")
+    n +=1
