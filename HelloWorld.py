@@ -258,7 +258,7 @@ response = input("Would you like food? (y/n): ")
 if response == "y":
     print("Have some food!")
 else:
-    print("No food for you.")
+    print("No food for you.If you want food you can press y.")
 #I got another if statement for you
 
 name = input("Enter your name: ")
