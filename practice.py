@@ -1,13 +1,23 @@
-def ordinal(n):
-    suffixes = {1: 'st', 2: 'nd', 3: 'rd'}
-    if 10 <= n % 100 <= 20:
-        suffix = 'th'
-    else:
-        suffix = suffixes.get(n % 10, 'th')
-    return str(n) + suffix
+import random
 
-n = 0
-while n < 51:
-    ordinal_number = ordinal(n)
-    print(f"{ordinal_number} line of while loop prints {n}")
-    n += 1
+options = ("rock", "paper", "scissors")
+
+while True:
+    player = input("Enter a choice (rock, paper, scissors): ")
+    computer = random.choice(options)
+
+    print(f"Player: {player}")
+    print(f"Computer: {computer}")
+
+    outcome = "It's a tie!" if player == computer else "You win! Congratulations!" if (
+            (player == "rock" and computer == "scissors") or
+            (player == "paper" and computer == "rock") or
+            (player == "scissors" and computer == "paper")
+    ) else "You lose!"
+
+    print(outcome)
+
+    if input("Play again? (y/n): ").lower() != "y":
+        break
+
+print("Thanks for playing.")
