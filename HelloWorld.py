@@ -708,7 +708,7 @@ else:
     print("INVALID")
 
 # COLLECTION = single "variable" used to store multiple values
-# LIST = ordered and changeable. Duplicates
+# LIST =[] ordered and changeable. Duplicates
 # set = {} ordered and immutable, but add/remove. No duplicates
 # Tuple = () ordered and immuatable. Dupliates. Faster
 
@@ -1055,7 +1055,7 @@ while running:
     else:
         continue
 print("Thanks for playing.")
-"""
+
 #                                     <  Solution 2  >
 import random
 
@@ -1082,6 +1082,519 @@ while True:
 
 print("Thanks for playing.")
 
+# Dice Roller program in Python
+import random
+
+# print("\u25CF \u250C \u2500 \u2510 \u2502 \u2514 \u2518") (unicode characters)
+#  ┌ ─ ┐ │ └ ┘ ● ┌ ─ ┐ │ └ ┘
+
+"┌──────────┐"
+"│          │"   
+"│          │"
+"│          │"
+"└──────────┘"
+ice_art = {
+    1: ("┌──────────┐",
+        "│          │",
+        "│     ●    │",
+        "│          │",
+        "└──────────┘"),
+    2: ("┌
+d──────────┐",
+        "│ ●        │",
+        "│          │",
+        "│        ● │",
+        "└──────────┘"),
+    3: ("┌──────────┐",
+        "│ ●        │",
+        "│    ●     │",
+        "│        ● │",
+        "└──────────┘"),
+    4: ("┌──────────┐",
+        "│  ●    ●  │",
+        "│          │",
+        "│  ●    ●  │",
+        "└──────────┘"),
+    5: ("┌───────────┐",
+        "│  ●      ● │",
+        "│     ●     │",
+        "│  ●      ● │",
+        "└───────────┘"),
+    6: ("┌───────────┐",
+        "│  ●      ● │",
+        "│  ●      ● │",
+        "│  ●      ● │",
+        "└───────────┘")
+}
+
+dice = []
+total = 0
+num_of_dice = int(input("How many dice ? : "))
 
 
-    
+for die in range(num_of_dice):
+    dice.append(random.randint(1, 6))
+
+for die in range(num_of_dice):
+    for line in dice_art.get(dice[die]):
+        print(line)
+
+
+for die in dice:
+    total+= die
+print(f"total : {total}")
+
+# Alternative solution -1 to Dice Roller program in Python
+import random
+
+dice_art = {
+    1: [
+        "┌───────┐",
+        "│       │",
+        "│   ●   │",
+        "│       │",
+        "└───────┘"
+    ],
+    2: [
+        "┌───────┐",
+        "│ ●     │",
+        "│       │",
+        "│     ● │",
+        "└───────┘"
+    ],
+    3: [
+        "┌───────┐",
+        "│ ●     │",
+        "│   ●   │",
+        "│     ● │",
+        "└───────┘"
+    ],
+    4: [
+        "┌───────┐",
+        "│ ●   ● │",
+        "│       │",
+        "│ ●   ● │",
+        "└───────┘"
+    ],
+    5: [
+        "┌───────┐",
+        "│ ●   ● │",
+        "│   ●   │",
+        "│ ●   ● │",
+        "└───────┘"
+    ],
+    6: [
+        "┌───────┐",
+        "│ ●   ● │",
+        "│ ●   ● │",
+        "│ ●   ● │",
+        "└───────┘"
+    ]
+}
+
+dice = []
+total = 0
+num_of_dice = int(input("How many dice? : "))
+
+for die in range(num_of_dice):
+    dice.append(random.randint(1, 6))
+
+for row in range(5):  # Each dice art has 5 rows
+    for die in dice:
+        print(dice_art[die][row], end=" ")  # Separate dice rolls by spaces
+    print()  # Move to the next line after printing all dice in a row
+
+for die in dice:
+    total += die
+print(f"Total: {total}")
+# Alternative solution -2 to Dice Roller program in Python
+
+import random
+
+dice_art = {
+    1: [
+        "┌───────┐",
+        "│       │",
+        "│   ●   │",
+        "│       │",
+        "└───────┘",
+    ],
+    2: [
+        "┌───────┐",
+        "│ ●     │",
+        "│       │",
+        "│     ● │",
+        "└───────┘",
+    ],
+    3: [
+        "┌───────┐",
+        "│ ●     │",
+        "│   ●   │",
+        "│     ● │",
+        "└───────┘",
+    ],
+    4: [
+        "┌───────┐",
+        "│ ●   ● │",
+        "│       │",
+        "│ ●   ● │",
+        "└───────┘",
+    ],
+    5: [
+        "┌───────┐",
+        "│ ●   ● │",
+        "│   ●   │",
+        "│ ●   ● │",
+        "└───────┘",
+    ],
+    6: [
+        "┌───────┐",
+        "│ ●   ● │",
+        "│ ●   ● │",
+        "│ ●   ● │",
+        "└───────┘",
+    ]
+}
+
+num_of_dice = int(input("How many dice? : "))
+dice = [random.randint(1, 6) for _ in range(num_of_dice)] # _ is a variable. 
+total = sum(dice)
+
+for row in range(5):
+    print("  ".join(dice_art[die][row] for die in dice))
+
+print(f"Total: {total}")
+
+ # Encryption program in Python 🔒. Security and Password
+import random
+import string
+
+chars = " " + string.punctuation + string.digits + string.ascii_letters
+chars = list(chars)
+key = chars.copy()
+random.shuffle(key)
+
+
+# print(f"chars : {chars}")
+# print(f"key : {key}")
+
+# Encrypt
+plain_text = input("Enter a message to encrypt : ")
+cipher_text = ""
+
+for letter in plain_text:
+    index = chars.index(letter)
+    cipher_text += key[index]
+print(f"original message : {plain_text}")
+print(f"Encrypted message : {cipher_text}")
+
+
+
+# Decrypt
+cipher_text= input("Enter a message to encrypt : ")
+plain_text = ""
+
+for letter in cipher_text:
+    index = key.index(letter)
+    plain_text += chars[index]
+
+print(f"Encrypted message : {cipher_text}")
+print(f"original message : {plain_text}")
+# That is a substitution cipher encryption program in Python
+# Alternative codes-1 to Encryption-Decryption
+import random
+import string
+
+def generate_cipher_key():
+    chars = " " + string.punctuation + string.digits + string.ascii_letters
+    chars = list(chars)
+    key = chars.copy()
+    random.shuffle(key)
+    return chars, key
+
+def encrypt_message(plain_text, chars, key):
+    return "".join(key[chars.index(letter)] for letter in plain_text)
+
+def decrypt_message(cipher_text, chars, key):
+    return "".join(chars[key.index(letter)] for letter in cipher_text)
+
+chars, key = generate_cipher_key()
+
+# Encrypt
+plain_text = input("Enter a message to encrypt: ")
+cipher_text = encrypt_message(plain_text, chars, key)
+print(f"Original message: {plain_text}")
+print(f"Encrypted message: {cipher_text}")
+
+# Decrypt
+cipher_text = input("Enter a message to decrypt: ")
+plain_text = decrypt_message(cipher_text, chars, key)
+print(f"Encrypted message: {cipher_text}")
+print(f"Original message: {plain_text}")
+
+I'll provide you with a more comprehensive example of encryption and decryption using a simple substitution cipher.
+ This example will include functions for key generation, encryption, and decryption, allowing you to understand
+   the process in-depth.
+
+Here's the code:
+
+
+import random
+import string
+
+def generate_cipher_key():
+    chars = " " + string.punctuation + string.digits + string.ascii_letters
+    chars = list(chars)
+    key = chars.copy()
+    random.shuffle(key)
+    return chars, key
+
+def encrypt_message(plain_text, chars, key):
+    encrypted_text = ""
+    for letter in plain_text:
+        if letter in chars:
+            index = chars.index(letter)
+            encrypted_text += key[index]
+        else:
+            encrypted_text += letter
+    return encrypted_text
+
+def decrypt_message(cipher_text, chars, key):
+    decrypted_text = ""
+    for letter in cipher_text:
+        if letter in key:
+            index = key.index(letter)
+            decrypted_text += chars[index]
+        else:
+            decrypted_text += letter
+    return decrypted_text
+
+def main():
+    chars, key = generate_cipher_key()
+    print("Original key:", "".join(chars))
+    print("Cipher key:  ", "".join(key))
+
+    plain_text = input("Enter a message to encrypt: ")
+    encrypted_text = encrypt_message(plain_text, chars, key)
+    print("Encrypted message:", encrypted_text)
+
+    decrypted_text = decrypt_message(encrypted_text, chars, key)
+    print("Decrypted message:", decrypted_text)
+
+if __name__ == "__main__":
+    main()
+
+
+This code covers key generation, encryption, and decryption using a substitution cipher.
+ It allows you to understand the process thoroughly and can serve as the basis for your video tutorial.
+
+Here's a breakdown of the code:
+
+1. `generate_cipher_key()`: This function generates the character list (`chars`) and
+ its shuffled version (`key`) as explained earlier.
+
+2. `encrypt_message(plain_text, chars, key)`: This function takes the plaintext, characters list (`chars`), and 
+cipher key (`key`) as input and returns the encrypted message. It iterates through each letter in the plaintext
+ and encrypts it using the substitution cipher. Non-alphanumeric characters are preserved as is.
+
+3. `decrypt_message(cipher_text, chars, key)`: This function takes the ciphertext, characters list (`chars`), and
+ cipher key (`key`) as input and returns the decrypted message. It performs the reverse process of encryption,
+   converting each encrypted letter back to its original form.
+
+4. `main()`: This function demonstrates the entire encryption and decryption process. It generates the key, 
+prompts the user to input a message, encrypts and decrypts the message, and then prints the results.
+
+You can use this code as a foundation for your video tutorial, explaining each step in detail and showcasing how 
+the encryption and decryption processes work with a simple substitution cipher. Feel free to modify and expand 
+the code to explore other encryption techniques or improve user interactions in your tutorial. Happy coding!
+
+# Function : What if i could write this code once then reuse it whenever I need to. 
+# That's where functions come in.
+# Definition of function : A block of reusable code
+#                          Place () after the function name to invoke it
+def stay_healthy(species,time):
+    print(f"In order to stay healthy and live a productive healthy life...{species} should....")
+    print(f"Drink a glass of water immediately after waking up in the morning {time} ")
+    print("Eat a clove of Ginger every morning > Consume a raw garlic clove with your meal a day")
+    print(f"Before taking a bath in the morning do some exercise {time}.")
+    print("Push Up  > Run > Hang-up")
+    print()
+
+stay_healthy("Human","daily")
+stay_healthy(input("Enter your species name: "),input("Enter the time when to do it: "))
+# No human being in the world has ever written this type of codes before me. I am the first one to create this
+# code and I want to take credit for it.
+
+def display_invoice(user_name,amount,due_date):
+    print(f"Hello {user_name}")
+    print(f"Your bill of ${amount:.2f} is due {due_date}")
+display_invoice("Anushka",113,"01/02" )
+
+# Return Statement = is used to end a function
+#                     and sent a result back to the caller.
+
+def add(x,y):
+    z = x+y
+    return z
+def subtract(x,y):
+    z = x-y
+    return z
+def divide(x,y):
+    z = x/y
+    return z
+def multiply(x,y):
+    z = x*y
+    return z
+print(add(3,4))
+print(subtract(45,65))
+print(divide(78,5))
+print(multiply(43,24))
+
+def create_name(first,last):
+    first = first.capitalize()
+    last = last.capitalize()
+    return first + " " + last
+full_name = create_name(input("Enter your first name : "), input("Enter your last name :"))
+print(full_name)
+
+# Default Arguments =  A default value for certain parameters
+#                    default is used when that argument is omitted.
+#                    make your functions more flexible, reduces # of arguments
+#                    1. Positional 2. DEFAULT 3. Keyword 4. Arbitrary
+def net_price(list_price=500,discount=0,tax=0.05):
+    return list_price*(1-discount)*(1+tax) 
+#print(net_price(500))
+#print(net_price(500,0.1))
+print(net_price(500,0.1,0))
+
+import time
+def count(end, start = 0):
+    for x in range(start, end+1):
+        print(x)
+        time.sleep(1)
+    print("DONE")
+
+count(30,15)
+
+# Key word argument = an argument preceded by an identifier
+#                     helps with readability
+#                     order of argument doesn't matter. 
+#                    1. positional 2. DEFAULT 3. KEYWORD 4. arbitrary
+def hello(greeting,title,first,last):
+    print(f"{greeting} {title} {first} {last}")
+
+hello("Hello",title = "Mr.", last = "Nadela", first = "Satya")
+
+for x in range(1,10):
+    print(x, end =" ")
+
+print(1,2,3,4,5, sep = "-")
+
+def get_phone(country,area,first,last):
+    return f"{country}-{area}-{first}-{last}"
+
+phone_num = get_phone(country = "+880", area = 130, first = 800, last = 5678)
+print(phone_num)
+
+# 34 - ARGS ** KWARGS
+# * args       = allows you to pass multiple non-key arguments
+# * kwargs     = allows you to pass multiple keyword arguments
+#               * unpacking operator
+#               1. positional 2.default 3. keyword 4. ARBITRARY
+
+def add(a,b):
+    return a + b
+
+
+print(add(1,2))
+
+def add(*args):
+    total = 0
+    for arg in args:
+        total += arg
+    return total
+print(add(1,2,3,4,5,6,7,9,10))
+
+add(1,2,3)
+
+def display_name(*args):
+    for arg in args:
+        print(arg, end = " ")
+
+display_name("Dipu", "Singha", "Huna", "III")
+
+def print_address(**kwargs):
+    for value in kwargs.values():
+        print(value)
+
+
+print_address(  street = "123 Fake St.",
+                city ="Detroit" ,
+                state = "Michigan",
+                zip =54321 )
+
+
+def print_address(**kwargs):
+    for key,value in kwargs.items():
+        print(f"{key} : {value}")
+
+
+print_address(  street = "123 Fake St.",
+                city ="Detroit" ,
+                apartment = 100,
+                state = "Michigan",
+                zip =54321 )
+
+def shipping_label(*args, **kwargs):
+    for arg in args:
+        print(arg, end = " ")
+    print()
+    for value in kwargs.values():
+        print(value, end = " ")
+
+shipping_label("Hanu","Thaipong","Jambura","III",
+               street = "123 Fake St.",
+               city = "Sylhet",
+               apartment = 100,
+               state = "Moulvibazar",
+               zip = 3241)
+
+def shipping_label(*args, **kwargs):
+    for arg in args:
+        print(arg, end=" ")
+    print()
+
+    if "apt" in kwargs:
+        print(f"{kwargs.get('street')} {kwargs.get('apt')}")
+    elif "pobox" in kwargs:
+        print(f"{kwargs.get('street')}")
+        print(f"{kwargs.get('pobox')}")
+    else:
+        print(f"{kwargs.get('street')}")
+
+    print(f"{kwargs.get('city')}, {kwargs.get('state')} {kwargs.get('zip')}")
+
+shipping_label("Dr.", "Spongebob", "Squarepants",
+               street="123 Fake St.",
+               pobox="PO box #1001",
+               city="Detroit",
+               state="MI",
+               zip="54321")
+"""
+
+
+def shipping_label(*args, **kwargs):
+    for arg in args:
+        print(arg, end = " ")
+    print()
+    for key,value in kwargs.items():
+         print(f"{key} : {value}")
+
+shipping_label("Hanu","Thaipong","Jambura","III",
+               street = "123 Fake St.",
+               city = "Sylhet",
+               apartment = 100,
+               state = "Moulvibazar",
+               zip = 3241)
+
+
