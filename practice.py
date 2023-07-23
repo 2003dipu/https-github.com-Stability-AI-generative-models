@@ -28,7 +28,7 @@ cipher_text = input("Enter a message to decrypt: ")
 plain_text = decrypt_message(cipher_text, chars, key)
 print(f"Encrypted message: {cipher_text}")
 print(f"Original message: {plain_text}")
-"""
+
 # App
 import random
 import string
@@ -88,7 +88,19 @@ class EncryptionApp:
 if __name__ == "__main__":
     app = EncryptionApp()
     app.run()
+"""
+import os
+source = "test.txt"
+destination = "G:\My Drive\test.txt"
 
+try:
+    if os.path.exists(destination):
+        print("There is already a file there")
+    else:
+        os.replace(source,destination)
+        print(source+"was moved!")
+except FileNotFoundError:
+    print(source+"was not found")
 
 
 

@@ -1580,7 +1580,7 @@ shipping_label("Dr.", "Spongebob", "Squarepants",
                city="Detroit",
                state="MI",
                zip="54321")
-"""
+
 
 
 def shipping_label(*args, **kwargs):
@@ -1596,5 +1596,147 @@ shipping_label("Hanu","Thaipong","Jambura","III",
                apartment = 100,
                state = "Moulvibazar",
                zip = 3241)
+"""
+# create your own module and import it like you import built-in modules for example math
+
+import example
+result = example.pi
+result = example.square(4)
+result = example.cube(4)
+result = example.area(4)
+result = example.circumference(6)
+print(result)
+
+# Variable scope = where a variable is visible and accessible
+# Scope resolution = (LEGB), local -> Enclosed-> Global-> Built-in
+# Can we call this nested function? A function inside of another function only allowed in Python
+def function1():
+    x = 1
+
+    def function2():
+        print(x)
+        function2()
+
+function1()
+
+def fun1():
+    
+  # x =1 ( local version of x)
+    print(2*x)
+def fun2():
+    print(3*x)
+x = 3 # (global version of x)
+fun1()
+fun2()
+
+from math import e
+
+def fun1():
+    print(e)
+
+fun1()
+
+# Exception handling in Python
+# Exception = events detected during execution that interrupt the flow of a program
+try:
+    numerator = float(input("Enter a number to divide: "))
+    denominator = float(input("Enter a number to divide by : "))
+    result = numerator / denominator
+except ZeroDivisionError as e:
+    print(e)
+    print("You can't divide by zero! Idiot!")
+except ValueError as e:
+    print(e)
+    print("Enter only number please: ")
+
+except Exception as e:
+   print(e)
+   print("Something went wrong : ("")")
+else:
+    print(f"The answer is  {result:.2f}")
+finally:
+    print("This will always execute!")
+
+# Python file detection
+import os
+path = "G:\My Drive\python from 3 different tutorials"
+if os.path.exists(path):
+    print("That location exists!")
+    if os.path.isfile(path):
+        print("That is a file")
+    elif os.path.isdir(path):
+        print("That is a directory")
+else:
+    print("That location doesn't exist!")
+
+# Python File Detection
+try:
+    with open('practices.py') as file:
+        print(file.read())
+except FileNotFoundError:
+    print("That file was not found :(")
+
+# Python write a file:
+text = "Uh, oh. This file has been overwritten. Have a nice day. See ya"
+
+with open('test.txt','a') as file:
+    file.write(text)
+
+#                   Python Copy a File
+# copyfile() = copies contents of a file
+# copy() = copyfile() + permission mode + destination can be a directory
+# copy2 = copy + copy() + copies metadata(file's creation and modification times)
+
+import shutil
+shutil.copy2('test.txt', 'C:\\Users\\t\\OneDrive\\Desktop')
+import shutil
+shutil.copy2('test.txt', 'G:\My Drive')
+
+# Pyhon move a file
+import os
+source = "example.py"
+destination = r"G:\My Drive\example.py"
+
+try:
+    if os.path.exists(destination):
+        print("There is already a file there")
+    else:
+        os.replace(source, destination)
+        print(source + " was moved!")
+except FileNotFoundError:
+    print(source + " was not found")
+
+# Python delete a file
+import os
+import shutil
+
+path = "folder"
+try:
+    #os.remove(path)
+    #os.rmdir(path)
+    shutil.rmtree(path)
+except FileNotFoundError:
+    print("This file was not found.")
+except PermissionError:
+    print("You do not have permission to delete that")
+except OSError:
+    print("You cannot delete that using that function. ")
+else:
+    print(path+" was deleted.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
