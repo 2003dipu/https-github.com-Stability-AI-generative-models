@@ -1,11 +1,12 @@
-if Samyo_age < kingergarten_age:
 # Python Object Oriented Programming in Python
 from car import Car
 
-car_2 = Car("Chevy","Corvette",2023,"blue")
-car_2 =Car("Ford","Mustang",2022,"red")
+#car_1 = Car("Chevy","Corvette",2023,"blue")
+#car_2 =Car("Ford","Mustang",2022,"red")
 
-car_2.drive()
-car_2.stop()
+#car_1.wheels = 2
 
+#print(car_1.wheels)
+#print(car_2.wheels)
+print(Car.wheels)
 
