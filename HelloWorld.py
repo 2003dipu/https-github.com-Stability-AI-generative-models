@@ -1,24 +1,11 @@
-# Duck Typing = concept where the class of an object is less important than the methods or attributes.
-# class type is not checked if minimum methods/ attributes are present
-# "If it walks like a duck, and it quacks like a duck, then it must be a duck."
-class Duck:
-    def walk(self):
-        print("This duck is walking.")
-    def talk(self):
-        print("This duck is quacking.")
-class Chicken:
-    def walk(self):
-        print("This chicken is waling.")
-    def talk(self):
-        print("This chicken is clucking")
-
-class Person():
-    def catch(self,duck):
-        duck.walk()
-        duck.talk()
-        print("You caught the critter.")
-
-duck = Duck()
-chicken = Chicken()
-person = Person()
-person.catch(chicken)
+# walrus operator := 
+# assignment operator aka walrus operator
+# assigns values to variables as part of a larger expression
+# new to Python 3.8
+# Here's an example of why walrus operator would be useful
+#happy = True
+#print(happy)
+#print(happy := True)
+foods = list()
+while food := input("What food do you like? :") != "quit":
+    foods.append(food)
