@@ -1,75 +1,69 @@
-
-# Python inheritance
+""" Python Method overriding = is the ability of an OOP language to allow a subclass aka a Child Class
+ to provide a specific implementation of a method that is already provided by one of its parents. In this case 
+ we are going to override the eat method.
+ Basically speaking an object will use a method that is more closely associated with itself first before relying
+ on a method that it may inherit from a parent class"""
 class Animal:
-    alive = True
-
     def eat(self):
-        print("This animal is eating.")
-    def sleep(self):
-        print("This animal is sleeping.")
-
+        print("This animal is eating")
 class Rabbit(Animal):
-    def run(self):
-        print("This Rabbit is running. ")
-class Fish(Animal):
-    def swim(self):
-        print("This fish is swimming.")
-class Hawk(Animal):
-    def fly(self):
-        print("This hawk is flying.")
-rabbit = Rabbit()
-fish = Fish()
-hawk = Hawk()
-
-#print(rabbit.alive)
-#fish.eat()
-#hawk.sleep()
-rabbit.run()
-fish.swim()
-hawk.fly()
-
-# Python Multilevel Inheritance = when a derived (child) class inherits another derived(child) class
-class Organism():
-    alive = True
-
-class Animal(Organism):
     def eat(self):
-        print("This animal is eating.")
-
-class Dog(Animal):
-    def bark(self):
-        print("This dog is barking.")
-dog = Dog()
-print(dog.alive) # inherited form the Organism class
-dog.eat()        # inherited from the Animal class
-dog.bark()       # defined in dog class  
-
-# Muitiple inheritance = when a child class is derived from more than one parent class
-
-class Prey():
-
-    def flee(self):
-        print("This animal flees")
-
-class Predator():
-
-    def hunt(self):
-        print("This animal is hunting.")
-
-class Rabbit(Prey):
-    pass
-class Hawk(Predator):
-    pass
-class Fish(Prey, Predator):
-    pass
-
+        print("This rabbit is eating a carrot.")
 rabbit = Rabbit()
-hawk = Hawk()
-fish = Fish()
+rabbit.eat()
 
-#rabbit.flee()
-#hawk.hunt()
-fish.flee()
-fish.hunt()
+# Method chaining = calling multiple methods sequentially ,
+#  each call performs an action on the same object and returns self.
+class Car:
+    def turn_on(self):
+        print("You turn on the engine.")
+        return self
+    def drive(self):
+        print("You drive the car.")
+        return self
+    def brake(self):
+        print("You step on the braakes.")
+        return self
+    def turn_off(self):
+        print("You turn off the engine.")
+        return self
+car = Car()
+car.turn_on()\
+    .drive()\
+    .brake()\
+    .turn_off()
+
+# Super () = super functions are used to give access to the methods of a parent class.
+# returns a temporary object of a parent class when used.
+class Rectangle():
+        
+        def __init__(self,length,width):
+            self.length = length
+            self.width = width
+class Square(Rectangle):
+
+    def __init__(self,length,width):
+        super().__init__(length,width)
+    def area(self):
+         return self.length*self.width
+    
+class Cube(Rectangle):
+
+    def __init__(self,length,width,height):
+        super().__init__(length,width)
+        self.height = height
+    def volume(self):
+         return self.length*self.width*self.height
+
+square = Square(3,3)
+cube = Cube(4,4,4)
+print(square.area())
+print(cube.volume())
+
+# THis is an example of speech syunthesis in English.
+
+
+
+
 
 
